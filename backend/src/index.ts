@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
 import newsRouter from "./routes/news";
+import categoriesRouter from "./routes/categories";
 
 dotenv.config();
 
@@ -11,6 +12,7 @@ app.use(cors());
 app.use(express.json());
 
 app.use("/api/news", newsRouter);
+app.use("/api/categories", categoriesRouter);
 
 const PORT = Number(process.env.PORT) || 8000;
 app.listen(PORT, () => {
