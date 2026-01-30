@@ -16,7 +16,7 @@ model News {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  categories NewsCategory[]
+  // categories NewsCategory[]
 }
 
 model Category {
@@ -26,17 +26,5 @@ model Category {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  news NewsCategory[]
-}
-
-model NewsCategory {
-  id         Int @id @default(autoincrement())
-
-  articleId  Int
-  categoryId Int
-
-  news     News     @relation(fields: [articleId], references: [id], onDelete: Cascade)
-  category Category @relation(fields: [categoryId], references: [id], onDelete: Cascade)
-
-  @@unique([articleId, categoryId])
+  // categories Category[]
 }
